@@ -9,12 +9,12 @@ public class AugmentedPOI {
 	private double mLatitude;
 	private double mLongitude;
 	
-	public AugmentedPOI(String newName, String newDescription,
-						double newLatitude, double newLongitude) {
-		this.mName = newName;
-        this.mDescription = newDescription;
-        this.mLatitude = newLatitude;
-        this.mLongitude = newLongitude;
+	public AugmentedPOI(Object newName, Object newDescription,
+						Object newLatitude, Object newLongitude) {
+		this.mName = (String) newName;
+        this.mDescription = (String) newDescription;
+        this.mLatitude = (double) newLatitude;
+        this.mLongitude = (double) newLongitude;
 	}
 	
 	public int getPoiId() {

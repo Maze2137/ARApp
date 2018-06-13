@@ -1,14 +1,9 @@
 package com.lycha.example.augmentedreality;
-
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-
-/**
- * Created by krzysztofjackowski on 24/09/15.
- */
 public class MyCurrentAzimuth implements SensorEventListener {
 
     private SensorManager sensorManager;
@@ -22,14 +17,12 @@ public class MyCurrentAzimuth implements SensorEventListener {
         mAzimuthListener = azimuthListener;
         mContext = context;
     }
-
     public void start(){
         sensorManager = (SensorManager) mContext.getSystemService(mContext.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sensorManager.registerListener(this, sensor,
                 SensorManager.SENSOR_DELAY_UI);
     }
-
     public void stop(){
         sensorManager.unregisterListener(this);
     }
@@ -37,7 +30,6 @@ public class MyCurrentAzimuth implements SensorEventListener {
     public void setOnShakeListener(OnAzimuthChangedListener listener) {
         mAzimuthListener = listener;
     }
-
     @Override
     public void onSensorChanged(SensorEvent event) {
         azimuthFrom = azimuthTo;
@@ -49,7 +41,6 @@ public class MyCurrentAzimuth implements SensorEventListener {
 
         mAzimuthListener.onAzimuthChanged(azimuthFrom, azimuthTo);
     }
-
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
